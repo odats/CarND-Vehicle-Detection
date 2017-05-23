@@ -40,7 +40,7 @@ Here is an example using the `YCrCb` color space and HOG parameters of `orientat
 
 ![alt text][image21]
 
-![alt text][image21]
+![alt text][image22]
 
 2. Explain how you settled on your final choice of HOG parameters.
 
@@ -50,7 +50,9 @@ I tried various combinations of parameters and then compared errors after classi
 
 I trained a linear SVM using LinearSVC. Test Accuracy of SVC is 96% My test_size is 0.2. I also shuffled data before training. The code for this step is contained in the [19] code cell of the IPython notebook.
 
-###Sliding Window Search
+***Sliding Window Search
+
+I decided to go with scale = 1.5. The code for sliding widnwow is contained in the [12] code cell of the IPython notebook.
 
 ####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
