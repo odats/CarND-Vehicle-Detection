@@ -14,7 +14,10 @@ The goals / steps of this project are the following:
 [image21]: ./examples/hog1.png
 [image22]: ./examples/hog2.png
 [image3]: ./examples/sliding_windows.jpg
-[image4]: ./examples/sliding_window.jpg
+[image41]: ./output_images/res1.png
+[image42]: ./output_images/res1.png
+[image43]: ./output_images/res1.png
+[image44]: ./output_images/res1.png
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
 [image7]: ./examples/output_bboxes.png
@@ -52,24 +55,25 @@ I trained a linear SVM using LinearSVC. Test Accuracy of SVC is 96% My test_size
 
 ***Sliding Window Search
 
-I decided to go with scale = 1.5. The code for sliding widnwow is contained in the [12] code cell of the IPython notebook.
+I decided to go with scale = [1,3]. I checked the size of cars depending on how far away the car is from the camera. Having more scales affects the performance. Instead of overlap I defined how many cells to step (2), cell has 8 pixels, 8 cells per block.
+The code for sliding window is contained in the [12] and [18] code cell of the IPython notebook.
 
-####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+To optimize the performance I decided to go with 2 scales and take HOG features for all image instead of taking HOG features for each window independently. My pipeline analysis only the bottom part of the image.
 
-![alt text][image3]
+Ultimately I searched on two scales [1,3] using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
+![alt text][image41]
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+![alt text][image42]
 
-![alt text][image4]
+![alt text][image43]
+
+![alt text][image44]
 ---
 
 ### Video Implementation
 
-####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a [link to my video result](./project_video.mp4)
 
 
