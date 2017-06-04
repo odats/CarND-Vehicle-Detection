@@ -82,7 +82,7 @@ Ultimately I searched on two scales [1,3] using YCrCb 3-channel HOG features plu
 
 ### Video Implementation
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./output_images/project_video_result.mp4)
 
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected. 
 The code for heatmaps is contained in the [65] and [11] code cell of the IPython notebook. I used 2pixes for thresholding and 6 frames to get heatmaps.
@@ -106,6 +106,9 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 
 ### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
+
+2 cars detected
+
 ![alt text][image57]
 
 ### Here the resulting bounding boxes are drawn onto the last frame in the series:
